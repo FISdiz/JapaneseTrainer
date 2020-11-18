@@ -90,6 +90,14 @@ class HiraganaSingleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        action_refresh_button.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.main_container, newInstance("",""),"hiraganaTest")
+                .commit()
+        }
+
         hiragana_char.text = listHiraganaChar.random()
+
     }
 }
