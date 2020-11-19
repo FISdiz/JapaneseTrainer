@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_hiragana_single.*
 
@@ -92,12 +93,25 @@ class HiraganaSingleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         action_refresh_button.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.main_container, newInstance("",""),"hiraganaTest")
-                .commit()
+            refreshFragment()
         }
 
         hiragana_char.text = listHiraganaChar.random()
 
+        hira_send.setOnClickListener {
+            if (hiragana_char.text == "あ" && hira_answer.text.toString() == "A") {
+                Toast.makeText(context, "RESPUESTA CORRECTA", Toast.LENGTH_SHORT).show()
+                refreshFragment()
+            }
+            else {
+                Toast.makeText(context, "RESPUESTA INCORRECTA, inténtalo otra vez", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    fun refreshFragment() {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.main_container, newInstance("",""),"hiraganaTest")
+            .commit()
     }
 }
