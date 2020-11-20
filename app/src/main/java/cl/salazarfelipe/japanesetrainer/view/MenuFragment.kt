@@ -45,6 +45,7 @@ class Menu : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         hira_button.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.main_container, HiraganaSingleFragment.newInstance("",""),"hiraganaTest")
@@ -52,5 +53,11 @@ class Menu : Fragment() {
                 .commit()
         }
 
+        kata_button.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.main_container, KatakanaSingleFragment.newInstance("",""),"katakanaTest")
+                    .addToBackStack("katakanaTest")
+                    .commit()
+        }
     }
 }
