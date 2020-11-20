@@ -1,10 +1,11 @@
-package cl.salazarfelipe.japanesetrainer
+package cl.salazarfelipe.japanesetrainer.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import cl.salazarfelipe.japanesetrainer.R
 import kotlinx.android.synthetic.main.fragment_menu.*
 
 private const val ARG_PARAM1 = "param1"

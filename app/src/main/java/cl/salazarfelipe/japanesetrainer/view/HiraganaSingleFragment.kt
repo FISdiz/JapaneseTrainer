@@ -1,4 +1,4 @@
-package cl.salazarfelipe.japanesetrainer
+package cl.salazarfelipe.japanesetrainer.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import cl.salazarfelipe.japanesetrainer.R
 import cl.salazarfelipe.japanesetrainer.data.listHiraganaChar
 import kotlinx.android.synthetic.main.fragment_hiragana_single.*
 
@@ -126,6 +127,9 @@ class HiraganaSingleFragment : Fragment() {
                         (hiragana_char.text == "わ" && hira_answer.text.toString().toUpperCase() == "WA") ||
                         (hiragana_char.text == "を" && hira_answer.text.toString().toUpperCase() == "WO") ||
                         (hiragana_char.text == "ん" && hira_answer.text.toString().toUpperCase() == "N") ||
+                        (hiragana_char.text == "ゃ" && hira_answer.text.toString().toUpperCase() == "YA") ||
+                        (hiragana_char.text == "ゅ" && hira_answer.text.toString().toUpperCase() == "YU") ||
+                        (hiragana_char.text == "ょ" && hira_answer.text.toString().toUpperCase() == "YO") ||
                         (hiragana_char.text == "きゃ" && hira_answer.text.toString().toUpperCase() == "KYA") ||
                         (hiragana_char.text == "きゅ" && hira_answer.text.toString().toUpperCase() == "KYU") ||
                         (hiragana_char.text == "きょ" && hira_answer.text.toString().toUpperCase() == "KYO") ||
