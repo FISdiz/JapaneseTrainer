@@ -17,8 +17,6 @@ class HiraganaSingleFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    var correctas = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -178,8 +176,6 @@ class HiraganaSingleFragment : Fragment() {
 
     fun correctAnswer() {
         Toast.makeText(context, "RESPUESTA CORRECTA", Toast.LENGTH_SHORT).show()
-        correct_count_txt.text = "$correctas"
-        correctas++
         refreshChar()
     }
 
