@@ -11,4 +11,5 @@
     <color name="menu">#a82ffc</color>
     <color name="buttons">#c264fe</color>
     <color name="text">#2B2130</color>
+    <color name="RED">#FF0000</color>
 </resources>

@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import cl.salazarfelipe.japanesetrainer.R
-import cl.salazarfelipe.japanesetrainer.data.listHiraganaChar
 import cl.salazarfelipe.japanesetrainer.data.listKatakanaChar
 import kotlinx.android.synthetic.main.fragment_hiragana_single.*
 import kotlinx.android.synthetic.main.fragment_hiragana_single.action_refresh_button
 import kotlinx.android.synthetic.main.fragment_katakana_single.*
+import kotlinx.android.synthetic.main.fragment_katakana_single.correct_count_txt
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -19,6 +19,8 @@ private const val ARG_PARAM2 = "param2"
 class KatakanaSingleFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
+
+    var correctas = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,12 +50,12 @@ class KatakanaSingleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         action_refresh_button.setOnClickListener {
-            refreshFragment()
+            refreshChar()
         }
 
         katakana_char.text = listKatakanaChar.random()
 
-        kata_send.setOnClickListener {
+        kata_send_button.setOnClickListener {
 
             when {
                 (katakana_char.text == "ア" && kata_answer.text.toString().toUpperCase() == "A") ||
@@ -171,15 +173,15 @@ class KatakanaSingleFragment : Fragment() {
         }
     }
 
-    fun refreshFragment() {
-        requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.main_container, newInstance("", ""),"katakanaTest")
-                .commit()
+    fun refreshChar() {
+        katakana_char.text = listKatakanaChar.random()
     }
 
     fun correctAnswer() {
         Toast.makeText(context, "RESPUESTA CORRECTA", Toast.LENGTH_SHORT).show()
-        refreshFragment()
+        correct_count_txt.text = "$correctas"
+        correctas++
+        refreshChar()
     }
 
     fun incorrectAnswer() {

@@ -4,28 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/buttons"
-    tools:context=".view.Menu" >
+    android:background="@color/white"
+    tools:context=".view.Menu">
 
-    <Button
+    <ImageButton
         android:id="@+id/hira_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hira"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/hiragana_item"
+        android:scaleType="fitCenter"
+        android:src="@drawable/hiragana_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <Button
+    <ImageButton
         android:id="@+id/kata_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/kata"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/katakana_item"
+        android:scaleType="fitCenter"
+        android:src="@drawable/katakana_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/hira_button"
-        app:layout_constraintStart_toStartOf="@+id/hira_button"
-        app:layout_constraintTop_toBottomOf="@+id/hira_button"
-        app:layout_constraintVertical_bias="0.099" />
+        app:layout_constraintStart_toStartOf="@+id/hira_button" />
+
+    <TextView
+        android:id="@+id/hiragana_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="@font/akazuki_pop"
+        android:text="Hiragana"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/hira_button"
+        app:layout_constraintEnd_toEndOf="@+id/hira_button"
+        app:layout_constraintTop_toTopOf="@+id/hira_button"
+        tools:text="@string/hiragana" />
+
+    <TextView
+        android:id="@+id/katakana_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="@font/akazuki_pop"
+        android:text="Katakana"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/kata_button"
+        app:layout_constraintEnd_toEndOf="@+id/kata_button"
+        app:layout_constraintTop_toTopOf="@+id/kata_button"
+        tools:text="@string/katakana" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="199dp"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,6 +17,8 @@ class HiraganaSingleFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    var correctas = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,7 +35,6 @@ class HiraganaSingleFragment : Fragment() {
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             HiraganaSingleFragment().apply {
@@ -48,12 +49,12 @@ class HiraganaSingleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         action_refresh_button.setOnClickListener {
-            refreshFragment()
+            refreshChar()
         }
 
         hiragana_char.text = listHiraganaChar.random()
 
-        hira_send.setOnClickListener {
+        hira_send_button.setOnClickListener {
 
             when {
                 (hiragana_char.text == "あ" && hira_answer.text.toString().toUpperCase() == "A") ||
@@ -171,15 +172,15 @@ class HiraganaSingleFragment : Fragment() {
         }
     }
 
-    fun refreshFragment() {
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.main_container, newInstance("",""),"hiraganaTest")
-            .commit()
+    fun refreshChar() {
+        hiragana_char.text = listHiraganaChar.random()
     }
 
     fun correctAnswer() {
         Toast.makeText(context, "RESPUESTA CORRECTA", Toast.LENGTH_SHORT).show()
-        refreshFragment()
+        correct_count_txt.text = "$correctas"
+        correctas++
+        refreshChar()
     }
 
     fun incorrectAnswer() {
